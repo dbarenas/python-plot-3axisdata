@@ -13,12 +13,23 @@ r = z**2 + 1
 x = r * np.sin(theta)
 y = r * np.cos(theta)
 
-ser = open("pdd3.dat","rw+")
+x=[]
+y=[]
+z=[]
+ser = open("pdd1.dat","rw+")
 line = ser.readlines()
 for i in line:
 	arr=i.split(':')
-	print arr[0]
-ax.plot(x, y, z, label='parametric curve')
+	x.append(int(arr[0]))
+	y.append(int(arr[1]))
+	z.append(int(arr[2]))
+
+sec=[]
+for i in range(len(line)):
+	sec.append(i)
+
+ax.plot(sec, x, z, label='parametric curve')
+
 ax.legend()
 
 plt.show()
